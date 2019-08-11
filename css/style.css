@@ -1,0 +1,124 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.mainBox{   /*主内容区*/
+    width: 1190px;
+    margin: 0 auto;
+    z-index: 100;
+}
+#top{
+    height: 35px;
+    border-bottom:1px #ddd solid; 
+    font: 12px/35px "微软雅黑";
+}
+#top a{
+    display: inline-block;
+    cursor: pointer;
+}
+.mainBox .top-l{
+    float: left;
+}
+
+.top-l .country-ls{
+    border-top:1px solid #ddd;
+    position: absolute;
+    left: -5px;
+    top:35px;
+    height:300px;
+    width:250px;
+    overflow:scroll;
+    background: white;
+}
+
+
+.mainBox .top-l > .country{
+    margin:0;
+    padding: 0 23px 0 10px; 
+    background: url(../imags/xbicon.png) no-repeat 65px center;
+    background-size: 0.8em;
+}
+
+.top-l .country-ls li{
+    padding-left:15px; 
+}
+.top-l .country-ls li:hover{
+    color: #000;
+    background: #eee;
+   
+}
+
+
+.top-l > a:last-child{
+    margin: 0 23px 0    10px;
+}
+
+.top-l .log-reg{
+    margin: 0 10px;
+}
+.top-l .log-reg a:first-child{
+    margin-right:8px;
+}
+.top-l a:hover{
+    color: rgb(255, 72, 0);
+}
+.top-l a:first-of-type:hover{
+    color: black;
+    
+}
+
+
+
+
+
+.mainBox .top-r{
+    float: right;
+}
+.top-lists > li{
+    float: left;
+    padding: 0 17px;
+    background: url(../imags/xbicon.png) no-repeat right center;
+    background-size: 0.8em;
+
+}
+.top-lists li a{
+    text-decoration: none;
+}
+
+.top-lists li a:hover{
+    color: orangered;
+}
+.top-lists li:nth-child(4){
+    background:none; 
+    position: relative;
+}
+.top-lists li:nth-child(4)::after{
+    content:"|";
+    color: #ddd;
+    position: absolute;
+    left: 82px;
+
+}
+
+.top-lists > li:first-child ul{
+    display: none;
+    position: absolute;
+    left: 0px;
+    border: 1px solid #ddd;
+    border-top: none;
+}
+.top-lists > li:first-child ul>li{
+    padding: 0 5px; 
+    white-space: nowrap;
+    background: #fff;
+   
+}
+
+
+
+
+#headMd{
+    height: 122px;
+    background: dodgerblue;
+}
