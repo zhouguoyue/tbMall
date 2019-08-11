@@ -305,10 +305,11 @@ to {left:-6px;}
     height: 36px;
     width: 558px;
     border-radius: 18px 0 0 18px;
-    /* padding-left: 10px; */
+    padding-right: 60px;
     outline: none;
     text-indent: 0.5em;
 }
+
 .searchbox button{
     font: 20px "宋体";
     background: linear-gradient(to right, #f68b00 , #fd5200);
