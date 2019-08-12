@@ -58,7 +58,10 @@ window.onload = function(){
     var searchboxbtn = document.querySelectorAll(".searchbox form > button")[0];
     var searchMd = document.getElementsByClassName("searchMd")[0];
     var searchlists = searchMd.querySelector(".searchlists");
-    console.log(searchlists);
+    var searchboxInput = searchMd.getElementsByTagName("input")[0]; //搜索框
+    var searchIconl = searchMd.getElementsByTagName("i")[0]; //搜索框
+
+
     for (var  i = 0; i < searchAls.length; i++) {
 
         searchAls[i].onclick = function(){
@@ -77,6 +80,12 @@ window.onload = function(){
                 searchboxbtn.style.background = "";
                 searchlists.style.display = "";//让 搜索列表消失
             }
+
+            if(searchAls[0].className == "clickA"){
+                searchboxInput.placeholder = "      连衣裙";//让 搜索按钮变红
+            }else{
+                searchboxInput.placeholder = "";//让 搜索列表消失
+            }
         };
         
     }
@@ -87,7 +96,32 @@ window.onload = function(){
         qrCode.style.display = "none";
     }
 
+        var value = searchboxInput.value;
+        
+        searchboxInput.onfocus = function(i){
+            value = searchboxInput.value;
+            console.log(value);
+            if(/\w+/gi.test(value)){
+                searchIconl.style.display = "none";
+                searchboxInput.placeholder = "";
+                console.log(value);
+            }else{
+                searchIconl.style.display = "";
+                searchboxInput.placeholder = "      连衣裙";
+                console.log(value);
+            }
+            
+        }
+        
+        
+        
+        
+    
 
+    
+    
+
+ 
     
 
         

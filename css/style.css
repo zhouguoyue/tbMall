@@ -101,9 +101,13 @@
     text-decoration: none;
 }
 
+.top-lists li a:hover ::before{
+    color: orangered;
+}
 .top-lists li a:hover{
     color: orangered;
 }
+
 .top-lists li:nth-child(4){
     background:none; 
     position: relative;
@@ -290,6 +294,7 @@ to {left:-6px;}
 }
 .searchMd .searchbox form > .input-ic-l{
     left: 10px;
+    color: #bbb;
 }
 .searchMd .searchbox form > .input-ic-r{
     right: 90px;
@@ -308,6 +313,9 @@ to {left:-6px;}
     padding-right: 60px;
     outline: none;
     text-indent: 0.5em;
+}
+.searchbox input::-webkit-search-cancel-button{
+    display: none;
 }
 
 .searchbox button{
