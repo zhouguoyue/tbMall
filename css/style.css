@@ -301,6 +301,12 @@ to {left:-6px;}
     font-size:24px; 
     color: #bbb;
 }
+.searchMd .searchbox form > .input-ic-r + span{
+    position: absolute;
+    left: 34px;
+    color: #aaa;
+    font: 14px/36px '宋体';
+}
 
 .searchbox input{
     display: block;

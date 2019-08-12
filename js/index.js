@@ -82,9 +82,11 @@ window.onload = function(){
             }
 
             if(searchAls[0].className == "clickA"){
-                searchboxInput.placeholder = "      连衣裙";//让 搜索按钮变红
+                searchboxInput.parentNode.getElementsByTagName("span")[0].style.display = "block";//让 搜索按钮变红
+                searchboxInput.parentNode.getElementsByTagName("i")[1].style.display = "block";//让 搜索按钮变红
             }else{
-                searchboxInput.placeholder = "";//让 搜索列表消失
+                searchboxInput.parentNode.getElementsByTagName("span")[0].style.display = "none";//让 搜索列表消失
+                searchboxInput.parentNode.getElementsByTagName("i")[1].style.display = "none";//让 搜索列表消失
             }
         };
         
@@ -98,17 +100,15 @@ window.onload = function(){
 
         var value = searchboxInput.value;
         
-        searchboxInput.onfocus = function(i){
+        searchboxInput.oninput = function(){
+            // console.log(searchboxInput.value);
             value = searchboxInput.value;
-            console.log(value);
-            if(/\w+/gi.test(value)){
+            if(/\S+/gi.test(value)){
                 searchIconl.style.display = "none";
-                searchboxInput.placeholder = "";
-                console.log(value);
+                searchboxInput.parentNode.getElementsByTagName("span")[0].style.display = "none";
             }else{
-                searchIconl.style.display = "";
-                searchboxInput.placeholder = "      连衣裙";
-                console.log(value);
+                searchIconl.style.display = "block";
+                searchboxInput.parentNode.getElementsByTagName("span")[0].style.display = "block";
             }
             
         }
