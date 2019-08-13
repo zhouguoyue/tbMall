@@ -26,7 +26,6 @@ window.onload = function(){
     bind("country","country-ls");
     bind("mymark","mymarkLs");
     bind("mytb","mytb-lists");
-
     var countryA = document.querySelectorAll(".sit-nav")[0];
     var countryLists = document.querySelectorAll(".sit-nav-ls")[0];
 
@@ -112,7 +111,27 @@ window.onload = function(){
             }
             
         }
+
+
+         //主题市场   二级菜单 显示和隐藏
+    var containerCoNav = document.querySelectorAll(".container-con-nav")[0];
+
+    var containerCoNavLis = containerCoNav.querySelectorAll(".container-con-nav .mainBox h2 ul>li");
+    
+    for (var  i = 0,length = containerCoNavLis.length; i < length; i++) {
+        (function(){
+            containerCoNavLis[i].onmouseenter = function(){
+                this.querySelector("div").style.display = "flex";
+            }
+            containerCoNavLis[i].onmouseleave = function(){
+                
+                this.querySelector("div").style.display = "none";
+            }
+        }(i))
         
+    };
+       
+
         
         
         

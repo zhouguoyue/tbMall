@@ -42,8 +42,9 @@
     top:35px;
     height:300px;
     width:250px;
-    overflow:scroll;
+    overflow-y:scroll;
     background: white;
+    z-index: 90;
 }
 
 
@@ -242,7 +243,7 @@ to {left:-6px;}
     text-decoration: none;
     text-indent: -99999em;
     overflow: hidden;
-    background: url("../imags/tblogo.png");
+    background: url("../imags/tblogo.png") no-repeat;
 }
 #headMd .searchMd .searchms{
     height: 22px;
@@ -379,4 +380,274 @@ to {left:-6px;}
 }
 #headMd .mainBox .qr-code div:first-child:hover{
     cursor: pointer;
+}
+
+
+.container-con-nav{
+    background: -webkit-linear-gradient(left, #f68b00 , #fd5200); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #f68b00, #fd5200); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, #f68b00, #fd5200); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #f68b00 , #fd5200); /* 标准的语法 */
+    font:14px/30px tahoma,arial,'Hiragino Sans GB','\5b8b\4f53',sans-serif;
+}
+
+.container-con-nav .mainBox a{
+    color: white;
+    font-size:16px;
+    font-weight: 700;
+    text-align: center;
+    display:inline-block;
+  
+
+}
+.container-con-nav .mainBox >span{
+    font-size:14px;
+    color: #fff;
+    /* float: left; */
+}
+.container-con-nav .mainBox .theme-market{
+    font-size:16px;
+    line-height: 30px;
+    display: inline-block;
+    width: 190px;
+    background: #ff5000;
+    position: relative;
+    text-align: center;
+    color: #fff;
+    
+}
+.container-con-nav .mainBox .theme-market .theme-market-items {
+    width: 715px;
+    height: 488px;
+    background: #fff;
+    position: absolute;
+    left: 189px;
+    top: 0;
+    border: 2px solid #ff7300;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    display: flex;
+
+}
+
+
+
+.container-con-nav .mainBox .theme-market ~ a{
+    padding:0 7px;
+    -webkit-animation: 2s 0s infinite move_eye;
+    /* animation: 10s linear 0s infinite alternate move_eye; */
+
+}
+.container-con-nav .mainBox .theme-market ~ a:hover{
+    position: relative;
+}
+@-webkit-keyframes move_eye { 
+    80% { text-shadow: none;} 
+    100% { text-shadow: 0 0 2px white; } 
+}
+@keyframes move_eye { 
+    80% { text-shadow: none;} 
+    100% { text-shadow: 0 0 2px white; } 
+    }
+
+.container-con-nav .mainBox .theme-market ~ a:hover::before{
+        color: #ff5000;
+        content: "\e9f0";
+        position: absolute;
+        font-family: 'icomoon';
+        left: 50%;
+        margin-left: -8px;
+        top: -20px;
+     }
+
+.container-con-nav .mainBox .theme-market>ul{
+    position: absolute;
+    left: 0;
+    top: 30px;
+    
+    padding: 5px 0;
+    background: #fff;
+    border: 1px #ff5000 solid;
+
+}
+
+.container-con-nav .mainBox .theme-market>ul>li{
+    box-sizing: border-box;
+    width: 188px;
+    height: 30px;
+    text-align: left;
+    padding:0 19px 0 24px; 
+    color: #3c3c3c;
+    font-size: 12px;
+    font-weight: 400;
+    overflow: hidden;
+}
+.container-con-nav .mainBox .theme-market>ul>li::after{
+    content: ">";
+    position: absolute;
+    left: 168px;
+    font-size: 12px;
+    color: #aaa;
+}
+.container-con-nav .mainBox .theme-market>ul>li:hover::after{
+    content: ">";
+    position: absolute;
+    left: 168px;
+    font-size: 12px;
+    color: #ff5000;
+}
+
+.container-con-nav .mainBox .theme-market ul>li> a {
+    color: #3c3c3c;
+    font-size: 12px;
+    font-weight: 400;
+}
+.container-con-nav .mainBox .theme-market>ul>li:hover {
+    background: #ffe4ce;
+    color: #ff5507;
+}
+.container-con-nav .mainBox .theme-market>ul>li:hover a{
+    color: #ff5507;
+}
+.container-con-nav .mainBox .theme-market ul>li> a:hover {
+    text-decoration: underline;
+}
+
+.container-con-nav .mainBox .theme-market .theme-market-items >div:first-child{
+    flex:3;
+    padding:10px 20px;
+   
+
+    
+}
+ .theme-market 
+ .theme-market-items 
+ .theme-market-items-mkl 
+ .theme-market-items-tittle 
+ a:first-child{
+     float: left;
+     color: #3c3c3c;
+     
+ }
+ .theme-market 
+ .theme-market-items 
+ .theme-market-items-mkl 
+ .theme-market-items-tittle 
+ a:first-child:hover{
+     color: #ff5000;
+     
+ }
+ .theme-market 
+ .theme-market-items 
+ .theme-market-items-mkl 
+ .theme-market-items-tittle 
+ a:last-child{
+     float: right;
+     color: #aaa;
+     font-size: 12px;
+ }
+ .theme-market 
+ .theme-market-items 
+ .theme-market-items-mkl 
+ .theme-market-items-tittle 
+ a:last-child:hover{
+     color: #ff5000;
+     
+ }
+ .theme-market-items-mkl .theme-market-items-tl-con{
+     color: #3c3c3c;
+     line-height: 24px;
+     height: 100px;
+     overflow: hidden;
+     white-space:pre-line;
+    
+ }
+
+
+
+
+.container-con-nav .mainBox .theme-market .theme-market-items >.theme-market-items-mkr{
+    flex:1.5;
+    padding:10px 20px;
+    text-align: center;
+}
+.container-con-nav 
+.mainBox 
+.theme-market 
+.theme-market-items >
+.theme-market-items-mkr>p{
+    color: #3c3c3c;
+}
+.container-con-nav 
+.mainBox 
+.theme-market 
+.theme-market-items >
+.theme-market-items-mkr 
+.theme-market-items-mkr-show{
+    height: 90%;
+    display: flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    align-content:space-between;
+}
+.container-con-nav 
+.mainBox 
+.theme-market 
+.theme-market-items >
+.theme-market-items-mkr 
+.theme-market-items-mkr-show-sl{
+    width: 45%;
+    position: relative;
+}
+.container-con-nav 
+.mainBox 
+.theme-market 
+.theme-market-items >
+.theme-market-items-mkr 
+.theme-market-items-mkr-show-sl:hover p{
+    color: #ff5000;
+}
+.container-con-nav 
+.mainBox 
+.theme-market 
+.theme-market-items >
+.theme-market-items-mkr 
+.theme-market-items-mkr-show-sl:hover .mkr-show-img-mask{
+    background: rgba(0,0,0,0.2);
+}
+.container-con-nav 
+.mainBox 
+.theme-market 
+.theme-market-items >
+.theme-market-items-mkr 
+.theme-market-items-mkr-show-sl>img{
+    /* border: 1px solid #ddd; */
+    width: 100%;
+    display: block;
+}
+.container-con-nav 
+.mainBox 
+.theme-market 
+.theme-market-items >
+.theme-market-items-mkr 
+.theme-market-items-mkr-show-sl>
+.mkr-show-img-mask{
+    width: 100%;
+    height: 97.25px;
+    /* background: rgba(0,0,0,0.1); */
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.container-con-nav 
+.mainBox 
+.theme-market 
+.theme-market-items >
+.theme-market-items-mkr 
+.theme-market-items-mkr-show-sl>p{
+    width: 100%;
+    line-height: 24px;
+    overflow: hidden;
+    height: 24px;
+    color: #3c3c3c;
 }
