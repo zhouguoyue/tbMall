@@ -24,6 +24,13 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-chevron-thin-left:before {
+  content: "\e902";
+}
+.icon-chevron-thin-right:before {
+  content: "\e901";
+}
+
 .icon-search:before {
   content: "\e900";
 }

@@ -6,7 +6,7 @@
 .mainBox{   /*主内容区*/
     width: 1190px;
     margin: 0 auto;
-    z-index: 100;
+    /* z-index: 100; */
     
 }
 .mainBox a{
@@ -129,6 +129,7 @@
     border-top: none;
     padding: 5px 0;
     background: #fff;
+    z-index: 20;
 }
 .top-lists .mymark ul>li,.top-lists .mytb ul>li{
     padding: 0 5px; 
@@ -426,6 +427,7 @@ to {left:-6px;}
     border: 2px solid #ff7300;
     box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
     display: flex;
+    z-index: 66;
 
 }
 
@@ -651,3 +653,156 @@ to {left:-6px;}
     height: 24px;
     color: #3c3c3c;
 }
+
+/* 主展示区域 轮播 + 快捷 */
+#container-content  .mainBox .con-main-show {
+ display: flex;
+}
+/* 左侧展示区 */
+#container-content >.mainBox > .con-main-show .con-main-show-l{
+    width: 890px;
+    height: 636px;
+    
+}
+/* 左侧展示区  top */
+#container-content .con-main-show .con-main-show-l .cmsl-top{
+    margin-left: 190px;
+    padding: 10px 0 0 10px;
+    
+}
+/* 左侧展示区  top 中的上轮播部分 */
+#container-content .con-main-show .con-main-show-l .cmsl-top .cmsl-top-t{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+#container-content .con-main-show .con-main-show-l .cmsl-top .cmsl-top-t-pro-rmap{
+    width: 520px;
+    height: 280px;
+    position: relative;
+    overflow: hidden;
+}
+#cmsl-top-runmaps{
+    width: 2080px;
+    display: flex;
+    /* position: absolute; */
+}
+
+
+/* 左右前进按钮 */
+#cmsl-top-runmap-pre,#cmsl-top-runmap-next{
+    display: block;
+    position: absolute;
+    height: 26px;
+    width: 26px;
+    background: rgba(000, 000, 000, 0.5);
+    margin-top:-13px; 
+}
+#cmsl-top-runmap-pre:hover,#cmsl-top-runmap-next:hover{
+    background: rgba(000, 000, 000, 0.8);
+}
+#cmsl-top-runmap-pre{
+    left: -5px;
+    top: 50%;
+    border-radius: 0 50% 50% 0;
+    text-indent: 0.3em;
+    overflow: hidden;
+    
+}
+#cmsl-top-runmap-pre::before{
+    font-family: 'icomoon' !important;
+    content: "\e902";
+    color:white;
+    line-height: 26px;
+}
+#cmsl-top-runmap-next{
+    right: -5px;
+    top: 50%;
+    border-radius: 50% 0 0 50%;
+    text-indent: 0.2em;
+    overflow: hidden;
+}
+#cmsl-top-runmap-next::before{
+    font-family: 'icomoon' !important;
+    content: "\e901";
+    color: white;
+    line-height: 26px;
+}
+/* 小圆点导航 */
+#cmsl-top-runmap-circle{
+    position: absolute;
+    height: 14px;
+    background: rgba(255,255,255,0.2);
+    left: 50%;
+    bottom: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 7px;
+    padding: 0 2px;
+    margin-left:-30px; 
+}
+#cmsl-top-runmap-circle li{
+    height: 10px;
+    width: 10px;
+    background: white;
+    margin: 0 3px;
+    border-radius: 50%;
+}
+#cmsl-top-runmap-circle li:hover{
+    cursor: pointer;
+}
+#cmsl-top-runmap-circle li.circle-active{
+    background: #ff5000;
+}
+
+
+
+/* 左侧展示区  top 中的上右部分 */
+#container-content .con-main-show .con-main-show-l .cmsl-top .cmsl-top-t-pro-rmap+div{
+    width: 160px;
+}
+#container-content .con-main-show .con-main-show-l .cmsl-top .cmsl-top-t-pro-rmap+div img{
+    display: block;
+}
+
+/* 左侧展示区  top 中的下部分 */
+#container-content .con-main-show .con-main-show-l .cmsl-top .cmsl-top-b{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+#container-content .con-main-show .con-main-show-l .cmsl-top .cmsl-top-b-TM-rmap{
+    width: 520px;
+    height: 220px;
+    background: #333;
+}
+#container-content .con-main-show .con-main-show-l .cmsl-top .cmsl-top-b-TM-rmap+div{
+    width: 160px;
+}
+#container-content .con-main-show .con-main-show-l .cmsl-top .cmsl-top-b-TM-rmap+div p,img{
+    display: block;
+    font: 14px/20px "微软雅黑";
+    color: #bbb;
+}
+
+
+
+
+
+/* 左侧展示区  bottom */
+#container-content .con-main-show .con-main-show-l .cmsl-bottom{
+    background: #a0ce34;
+    padding-top:27px 
+
+}
+
+
+/* 右侧快捷栏 */
+#container-content >.mainBox > .con-main-show .con-main-show-r{
+    background: rgb(255, 154, 154); 
+    flex: auto;
+}
+

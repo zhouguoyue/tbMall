@@ -130,9 +130,34 @@ window.onload = function(){
         }(i))
         
     };
-       
 
+
+    // 展示和快捷区  钻展轮播图
+    var cmslRunMapPre = document.getElementById("cmsl-top-runmap-pre");
+    var cmslRunMapNext = document.getElementById("cmsl-top-runmap-next");
+    var cmslRunMapCircle = document.getElementById("cmsl-top-runmap-circle");
+    var cmslRunMapCircleLis = cmslRunMapCircle.getElementsByTagName("li");
+    var cmslRunMaps = document.getElementById("cmsl-top-runmaps");
+    console.log(cmslRunMaps);
+    
+    cmslRunMapPre.onclick = function(){
+       
+        cmslRunMaps.style.marginLeft = (cmslRunMaps.offsetLeft - 520) +"px";
+        if(parseInt(cmslRunMaps.style.marginLeft)  <= -2080){
+            cmslRunMaps.style.marginLeft = 0+"px";
+        }
+    };
+    cmslRunMapNext.onclick = function(){
+        cmslRunMaps.style.marginLeft = (cmslRunMaps.offsetLeft + 520) +"px";
         
+        if(parseInt(cmslRunMaps.style.marginLeft)  >= 520){
+            cmslRunMaps.style.marginLeft = -1560+"px";
+        }
+    };
+
+
+    
+      
         
         
     
