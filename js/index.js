@@ -138,22 +138,104 @@ window.onload = function(){
     var cmslRunMapCircle = document.getElementById("cmsl-top-runmap-circle");
     var cmslRunMapCircleLis = cmslRunMapCircle.getElementsByTagName("li");
     var cmslRunMaps = document.getElementById("cmsl-top-runmaps");
-    console.log(cmslRunMaps);
-    
+
+    var cmslRunMapsImgs = cmslRunMaps.getElementsByTagName("img");
+        //设置轮播 的宽度
+        cmslRunMaps.style.width = 520*cmslRunMapsImgs.length +"px";
+        // 让图片导航居中 
+        cmslRunMapCircle.style.marginLeft = - cmslRunMapCircle.offsetWidth/2 +"px";
+        //默认第一个为 红色
+        var index = 0;
+        cmslRunMapCircleLis[index].className = "circle-active";
+
+      
+
+        //点击 圆点超链接 跳转到对应的图片；
+        for (var i=0;i< cmslRunMapCircleLis.length;i++) {
+            (function(i){       //传个 形参 i
+
+                    cmslRunMapCircleLis[i].onclick = function(){
+                    cmslRunMapCircleLis[index].className = "";
+                    cmslRunMaps.style.marginLeft = -520*(i+1) +"px";
+                    this.className = "circle-active";
+                    //把index 改成 被点击的这个圆点的下标
+                    index = i;
+                }
+            })(i);
+            
+        }
+
+
+
+
+    //向左 前进按钮
+    var os = cmslRunMapCircleLis.length;
+    console.log(os);
+    var oldValue  ;
     cmslRunMapPre.onclick = function(){
-       
-        cmslRunMaps.style.marginLeft = (cmslRunMaps.offsetLeft - 520) +"px";
+
+        oldValue = cmslRunMaps.offsetLeft -520;
+
+        //每点击下 就把好点移动到下一个圆点
+        cmslRunMapCircleLis[index%os].className = "";
+        //下标自增1 
+        index++;
+        if(index>= os){
+            index = 0;
+        }
+        cmslRunMapCircleLis[index].className = "circle-active";
+
+        cmslRunMaps.style.marginLeft = oldValue +"px";
         if(parseInt(cmslRunMaps.style.marginLeft)  <= -2080){
             cmslRunMaps.style.marginLeft = 0+"px";
         }
     };
+    //向右  后退按钮
     cmslRunMapNext.onclick = function(){
+
+
+        //每点击下 就把好点移动到下一个圆点
+        cmslRunMapCircleLis[index%os].className = "";
+        //下标自增1 
+        index--;
+        if(index<0){
+            index = os-1;
+        }
+        cmslRunMapCircleLis[index].className = "circle-active";
+
+
         cmslRunMaps.style.marginLeft = (cmslRunMaps.offsetLeft + 520) +"px";
         
         if(parseInt(cmslRunMaps.style.marginLeft)  >= 520){
             cmslRunMaps.style.marginLeft = -1560+"px";
         }
     };
+
+    // ;(function(){
+    //     var autoMove,MoveBegin;
+    //     function autoMoveF (){
+    //             MoveBegin = setTimeout(function(){
+    //             autoMove = setInterval(function(){
+    //                 var oldValue = cmslRunMaps.offsetLeft;
+    //                 cmslRunMaps.style.marginLeft = oldValue - 5 +"px";
+    //                 if(parseInt(cmslRunMaps.style.marginLeft)  <= -2080){
+    //                     cmslRunMaps.style.marginLeft = 0+"px";
+    //                 }
+    //             },30);
+    //         },2000)
+            
+    //     }
+    //     autoMoveF();
+        
+    //     cmslRunMaps.onmouseover = function(){
+    //         clearInterval(autoMove);
+    //         clearTimeout(MoveBegin);
+    //     }
+    //     cmslRunMaps.onmouseleave = function(){
+    //         autoMoveF();
+    //     }
+    // })();
+    
 
 
     

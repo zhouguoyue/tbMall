@@ -680,11 +680,12 @@ to {left:-6px;}
     width: 520px;
     height: 280px;
     position: relative;
-    overflow: hidden;
+    overflow: hidden;   
 }
 #cmsl-top-runmaps{
     width: 2080px;
     display: flex;
+    margin-left: -520px;
     /* position: absolute; */
 }
 
@@ -750,6 +751,8 @@ to {left:-6px;}
 }
 #cmsl-top-runmap-circle li:hover{
     cursor: pointer;
+    background: #ff5000;
+
 }
 #cmsl-top-runmap-circle li.circle-active{
     background: #ff5000;
