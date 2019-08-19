@@ -1,10 +1,11 @@
-window.onload = function(){
+    window.onload = function(){
 
     //obj 父元素  objls 子元素列表
     function bind(obj,obj2){
         var Obj = document.querySelectorAll("."+obj)[0];
         var Objls = document.querySelectorAll("."+obj2)[0];
         Obj.addEventListener("mouseover",function(){
+            
             Objls.style.display = "block";
         },false);
     
@@ -37,7 +38,6 @@ window.onload = function(){
         countryLists.style.display = "none";
     },false);
     
-
     //定义了一个hnbox方法 为列表右上角加box   
     // a组 第b个 加 hotBox 或是 newBox
     function hnbox(a,b,hn){
@@ -148,8 +148,6 @@ window.onload = function(){
         var index = 0;
         cmslRunMapCircleLis[index].className = "circle-active";
 
-      
-
         //点击 圆点超链接 跳转到对应的图片；
         for (var i=0;i< cmslRunMapCircleLis.length;i++) {
             (function(i){       //传个 形参 i
@@ -162,80 +160,233 @@ window.onload = function(){
                     index = i;
                 }
             })(i);
-            
         }
-
-
-
 
     //向左 前进按钮
-    var os = cmslRunMapCircleLis.length;
-    console.log(os);
-    var oldValue  ;
     cmslRunMapPre.onclick = function(){
-
-        oldValue = cmslRunMaps.offsetLeft -520;
-
-        //每点击下 就把好点移动到下一个圆点
-        cmslRunMapCircleLis[index%os].className = "";
+        
         //下标自增1 
         index++;
-        if(index>= os){
-            index = 0;
-        }
-        cmslRunMapCircleLis[index].className = "circle-active";
 
-        cmslRunMaps.style.marginLeft = oldValue +"px";
-        if(parseInt(cmslRunMaps.style.marginLeft)  <= -2080){
-            cmslRunMaps.style.marginLeft = 0+"px";
-        }
+        move(cmslRunMaps,"marginLeft",-520*(index+1),20,function(){
+            setA();
+        });
+
     };
     //向右  后退按钮
     cmslRunMapNext.onclick = function(){
-
-
-        //每点击下 就把好点移动到下一个圆点
-        cmslRunMapCircleLis[index%os].className = "";
-        //下标自增1 
+        //下标自减
         index--;
-        if(index<0){
-            index = os-1;
-        }
-        cmslRunMapCircleLis[index].className = "circle-active";
-
-
-        cmslRunMaps.style.marginLeft = (cmslRunMaps.offsetLeft + 520) +"px";
-        
-        if(parseInt(cmslRunMaps.style.marginLeft)  >= 520){
-            cmslRunMaps.style.marginLeft = -1560+"px";
-        }
+        move(cmslRunMaps,"marginLeft",-520*(index+1),20,function(){
+            setA();
+        });
     };
 
-    // ;(function(){
-    //     var autoMove,MoveBegin;
-    //     function autoMoveF (){
-    //             MoveBegin = setTimeout(function(){
-    //             autoMove = setInterval(function(){
-    //                 var oldValue = cmslRunMaps.offsetLeft;
-    //                 cmslRunMaps.style.marginLeft = oldValue - 5 +"px";
-    //                 if(parseInt(cmslRunMaps.style.marginLeft)  <= -2080){
-    //                     cmslRunMaps.style.marginLeft = 0+"px";
-    //                 }
-    //             },30);
-    //         },2000)
+    //设置圆点的css样式
+    function setA(){
+        for (var i=0;i< cmslRunMapCircleLis.length;i++) {
+            cmslRunMapCircleLis[i].className = "";
+        }
+        //当图片为最后一张时  设置索引回到第一个位置，图片瞬间回到起始位置；
+        if(index > cmslRunMapCircleLis.length-1){
+            index = 0;
+            cmslRunMaps.style.marginLeft = -520*(index+1)+"px";
+        }else if(index < 0){
+            index = (cmslRunMapCircleLis.length-1);
+            cmslRunMaps.style.marginLeft = -520*(index+1)+"px";
+        }
+
+
+        cmslRunMapCircleLis[index].className = "circle-active";
+    }
+
+    //自动轮播
+        var autoMove,MoveBegin;
+        function autoMoveF (){
+            MoveBegin = setTimeout(function(){
+                autoMove = setInterval(function(){
+                    index++;
+                    move(cmslRunMaps,"marginLeft",-520*(index+1),20,function(){
+                        setA();
+                    });
+                },3000);
+            },2000)
             
-    //     }
-    //     autoMoveF();
+        }
+        autoMoveF();
         
-    //     cmslRunMaps.onmouseover = function(){
-    //         clearInterval(autoMove);
-    //         clearTimeout(MoveBegin);
-    //     }
-    //     cmslRunMaps.onmouseleave = function(){
-    //         autoMoveF();
-    //     }
-    // })();
+        cmslRunMaps.parentNode.onmouseenter = function(){
+            clearInterval(autoMove);
+            clearTimeout(MoveBegin);
+            cmslRunMapPre.style.display = "block";
+            cmslRunMapNext.style.display = "block";
+        }
+        cmslRunMaps.parentNode.onmouseleave = function(){
+            autoMoveF();
+            cmslRunMapPre.style.display = "none";
+            cmslRunMapNext.style.display = "none";
+        }
+       
+     
+
+        var cmsltbrMapShowBoxC = document.getElementById("cmsltb-rmap-showbox-contain");
+        var cmsltbrMapShowBoxDiv = cmsltbrMapShowBoxC.querySelectorAll("#cmsltb-rmap-showbox-contain > div");
+        var cmsltbTMHp = document.getElementById("cmsltb-TM-hp");
+        var cmsltbTMHpP = cmsltbTMHp.querySelector("#cmsltb-TM-hp p");
+
+        var cmsltbTMBoxI = document.getElementById("cmsltb-TM-boxI");
+        var cmsltbTMBoxIAlla = cmsltbTMBoxI.querySelectorAll("a");
+        var cmsltbTmRmapSboxPre = document.getElementById("cmsltb-TM-rmap-showbox-pre");
+        var cmsltbTmRmapSboxNext = document.getElementById("cmsltb-TM-rmap-showbox-next");
+
+        //设置容器的宽度
+        cmsltbrMapShowBoxC.style.width = 520*(cmsltbrMapShowBoxDiv.length)+"px";
+        var index2 = 0;
+        cmsltbTMBoxIAlla[index].className = "blackA";
+
+          //点击 index2 链接 跳转到对应的图片；
+          for (var i=0;i< cmsltbTMBoxIAlla.length;i++) {
+            (function(i){       //传个 形参 i
+                cmsltbTMBoxIAlla[i].onclick = function(){
+                    cmsltbTMBoxIAlla[index2].className = "";
+                    cmsltbrMapShowBoxC.style.marginLeft = -520*(i+1) +"px";
+                    this.className = "blackA";
+                    //把index2 改成 被点击的这个圆点的下标
+                    index2 = i;
+                    setHp();
+                }
+            })(i);
+        }
+        
+        //向左 前进按钮
+    // var os1 = cmsltbTMBoxIAlla.length;
+    cmsltbTmRmapSboxPre.onclick = function(){
+        
+        //下标自增1 
+        
+        index2++;
+
+        move(cmsltbrMapShowBoxC,"marginLeft",-520*(index2+1),20,function(){
+            setA1();
+            setHp();
+        });
+
+    };
+    //向右  后退按钮
+    cmsltbTmRmapSboxNext.onclick = function(){
+        //下标自减
+        index2--;
+        move(cmsltbrMapShowBoxC,"marginLeft",-520*(index2+1),20,function(){
+            setA1();
+
+            setHp();
+        });
+    };
+
+    //设置圆点的css样式
+    function setA1(){
+        for (var i=0;i< cmsltbTMBoxIAlla.length;i++) {
+            cmsltbTMBoxIAlla[i].className = "";
+        }
+        //当图片为最后一张时  设置索引回到第一个位置，图片瞬间回到起始位置；
+        if(index2 > cmsltbTMBoxIAlla.length-1){
+            index2 = 0;
+            cmsltbrMapShowBoxC.style.marginLeft = -520*(index2+1)+"px";
+        }else if(index2 < 0){
+            index2 = (cmsltbTMBoxIAlla.length-1);
+            cmsltbrMapShowBoxC.style.marginLeft = -520*(index2+1)+"px";
+        }
+
+
+        cmsltbTMBoxIAlla[index2].className = "blackA";
+    }
+
+    //自动轮播
+        var autoMove1,MoveBegin1;
+        function autoMoveF1 (){
+            MoveBegin1 = setTimeout(function(){
+                autoMove1 = setInterval(function(){
+                    index2++;
+                    move(cmsltbrMapShowBoxC,"marginLeft",-520*(index2+1),20,function(){
+                        setA1();
+                    
+                        //设置文本
+                       setHp();
+                    });
+                },3000);
+            },2000)
+            
+        }
+        autoMoveF1();
+        
+        cmsltbrMapShowBoxC.parentNode.onmouseenter = function(){
+            clearInterval(autoMove1);
+            clearTimeout(MoveBegin1);
+            cmsltbTmRmapSboxPre.style.display = "block";
+            cmsltbTmRmapSboxNext.style.display = "block";
+        }
+        cmsltbrMapShowBoxC.parentNode.onmouseleave = function(){
+            autoMoveF1();
+            cmsltbTmRmapSboxPre.style.display = "none";
+            cmsltbTmRmapSboxNext.style.display = "none";
+
+        }
+
+        function setHp(){
+            cmsltbTMHpP.innerHTML =" <i style='color:red;'>" +(index2+1)+ "</i>"+ "/" + cmsltbTMBoxIAlla.length ;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function move(obj,name,target,speed,callback){
+
+        var curren = parseInt(getStyle(obj,name));
+        
+        speed = curren < target?speed:-speed;
     
+        clearInterval(obj.time);
+    
+        obj.time = setInterval(function(){
+    
+            curren = parseInt(getStyle(obj,name)); //持续的更新 left 值
+       
+            obj.style[name] = (curren +speed)+"px";
+            
+            if((speed > 0  && curren >= target) ||(speed < 0 && curren <= target) ){
+    
+    
+                obj.style[name] = target+"px";
+        
+                clearInterval(obj.time);
+                   callback && callback();
+                    
+            }
+        },20);
+        
+    };
+    // 初始需要指定 left top  在css 样式表中的值  如  left：0  ；   top：0 ；
+    function getStyle(obj,name){
+        if(window.getComputedStyle){
+            //正常浏览器的方式，具有getComputedStyle 方法
+            return getComputedStyle(obj,null)[name];
+        }else {
+            //IE8 没有getComputedStyle方法
+            return obj.currentStyle[name];
+        }
+    }
 
 
     

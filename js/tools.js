@@ -7,7 +7,7 @@
     
         clearInterval(obj.time);
     
-         obj.time = setInterval(function(){
+        obj.time = setInterval(function(){
     
             curren = parseInt(getStyle(obj,name)); //持续的更新 left 值
        
