@@ -892,10 +892,57 @@ to {left:-6px;}
 
 
 /* 左侧展示区  bottom */
-#container-content .con-main-show .con-main-show-l .cmsl-bottom{
-    background: #a0ce34;
-    padding-top:27px 
+#cmsl-bottom{
+    /* background: #a0ce34; */
+    padding:27px 14px 16px 20px ;
+    
+    display:flex;
+    align-items: center;
 
+
+}
+#cmsl-bottom>h3{
+    height: 74px;
+    background: url(../imags/TB1KbhkbUgQMeJjy0FeXXXOEVXa-129-26.png) 0 14px no-repeat;
+    
+}
+#cmsl-bottom>h3>p{
+    line-height: 20px;
+    width: 132px;
+    padding-top: 46px;
+    color: #aaa;
+}
+#cmsl-bottom .Advertorial{
+    display: flex;
+}
+#cmsl-bottom .Advertorial>img{
+    width: 132px;
+    height: 70px;
+    margin: 0 14px 0 50px;
+}
+#cmsl-bottom .Advertorial>div{
+    position: relative;
+}
+#cmsl-bottom .Advertorial>div>h4{
+    font-style: normal;
+    color: #666;
+    font: 700 16px "微软雅黑";
+}
+#cmsl-bottom .Advertorial>div>p{
+    margin-top:5px; 
+    display: block;
+    height: 39px;
+    font-size: 14px;
+    line-height: 1.3em;
+    overflow: hidden;
+    color: #aaa;
+}
+#cmsl-bottom .Advertorial>div>span{
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #bbb;
+    font: 12px "微软雅黑";
 }
 
 
