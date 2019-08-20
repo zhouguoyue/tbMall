@@ -373,10 +373,33 @@
         }
     }
 
-   
+    var cmsrCommunitytable = document.getElementById("cmsr-Community-table");
+    var cmsrCommunitytableAs = cmsrCommunitytable.querySelectorAll("li>a");
 
     
-      
+   
+
+
+    var cmsrCommunitycontainer = document.getElementById("cmsr-Community-container");
+    var cmsrCommunitycontainerUls = cmsrCommunitycontainer.querySelectorAll(".cmsr-Community-contables");
+   
+    var indexTas = 0;
+    cmsrCommunitytableAs[indexTas].className = "indexTa";
+    cmsrCommunitycontainerUls[indexTas].style.display = "flex";
+
+    for(var i = 0,length = cmsrCommunitytableAs.length;i<length;i++){
+        (function(i){
+            cmsrCommunitytableAs[i].onmouseenter = function(){
+                cmsrCommunitytableAs[indexTas].className = "";
+                this.className = "indexTa";
+                
+                cmsrCommunitycontainerUls[indexTas].style.display = "none";
+                cmsrCommunitycontainerUls[i].style.display = "flex";
+                indexTas = i;
+
+            }
+        })(i)
+    }
         
         
     

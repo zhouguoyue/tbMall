@@ -1083,12 +1083,68 @@ to {left:-6px;}
     line-height: 26px;
 }
 
+
+/* 论坛公告 */
 #cmsr-Community{
     height: 86px;
-    background: #bbb;
     margin-bottom:10px; 
+    font: 12px tahoma,arial,'Hiragino Sans GB','\5b8b\4f53',sans-serif;
+}
+#cmsr-Community-table{
+    display: flex;
+}
+#cmsr-Community-table>li{
+    flex: auto;
+    text-align: center;
+    height: 23px;
+    font-size:0; 
+}
+#cmsr-Community-table>li >a{
+    display: inline-block;
+    color: #3c3c3c;
+    font: 12px tahoma,arial,'Hiragino Sans GB','\5b8b\4f53',sans-serif;
+    line-height: 21px;
+    width: 30px;
+}
+
+#cmsr-Community-table>li >a.indexTa{
+    color: #ff5000;
+    border-bottom:2px #ff5000 solid; 
+    font-weight: 700;
+}
+#cmsr-Community-table>li >a:hover{
+    color: #ff5000;
+}
+
+#cmsr-Community-container{
+    height: 63px;
+    position: relative;
+}
+#cmsr-Community-container>ul{
+    position: absolute;
+    left: 0;
+    right: 0;
+    flex-flow:row wrap;
+    padding:10px 10px 0 10px; 
+    display: none;
+   
+
 
 }
+#cmsr-Community-container>ul>li{
+    width: 45%;    
+    margin-top: 5px;
+}
+#cmsr-Community-container>ul>li>a{
+    display: inline-block;
+    line-height: 18px;
+    color: #3c3c3c;
+}
+#cmsr-Community-container>ul>li>a:hover{
+    color: #ff5000;
+}
+
+
 #cmsr-FastTemplate{
     height: 234px;
     background: #f6b5ff;
