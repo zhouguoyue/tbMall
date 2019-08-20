@@ -336,21 +336,6 @@
             cmsltbTMHpP.innerHTML =" <i style='color:red;'>" +(index2+1)+ "</i>"+ "/" + cmsltbTMBoxIAlla.length ;
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     function move(obj,name,target,speed,callback){
 
         var curren = parseInt(getStyle(obj,name));
@@ -388,6 +373,7 @@
         }
     }
 
+   
 
     
       

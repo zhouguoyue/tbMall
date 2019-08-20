@@ -915,11 +915,25 @@ to {left:-6px;}
 #cmsl-bottom .Advertorial{
     display: flex;
 }
+
+#cmsl-bottom .Advertorial:hover img{
+    opacity: 0.8;
+    filter: alpha(opacity =80);
+    cursor: pointer;
+
+}
+#cmsl-bottom .Advertorial:hover div>h4{
+   color: #ff5000;
+   cursor: pointer;
+}
+
+
 #cmsl-bottom .Advertorial>img{
     width: 132px;
     height: 70px;
     margin: 0 14px 0 50px;
 }
+
 #cmsl-bottom .Advertorial>div{
     position: relative;
 }
@@ -945,10 +959,137 @@ to {left:-6px;}
     font: 12px "微软雅黑";
 }
 
-
+#cmsl-bottom .Advertorial>div>span:hover{
+    color: #ff5000;
+    cursor: pointer;
+}
 /* 右侧快捷栏 */
 #container-content >.mainBox > .con-main-show .con-main-show-r{
-    background: rgb(255, 154, 154); 
+    /* background: rgba(255, 154, 154,0.2);  */
     flex: auto;
+    margin-left:10px; 
+    margin-top:10px; 
+}
+#container-content #cmsr-userlore{
+    height: 145px;
+    padding: 3px 0 16px 0;
+    box-sizing: border-box;
+    background:url(../imags/坛.png) no-repeat;
+
+}
+#cmsr-user-headpic{
+    height: 56px;
+    width: 80px;
+    margin: 0 auto;
+    text-align: center;
+}
+#cmsr-user-headpic>a{
+    display: inline-block;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    overflow:hidden;
+    border: 3px solid #fff;
+
+}
+#cmsr-userlore-usName{
+    display: block;
+    line-height: 16px;
+    font-size: 10px;
+    text-align: center;
+}
+#cmsr-userlore-gold{
+    font-size:0 ;
+    text-align: center;
+    margin-bottom: 10px;
+    
+}
+#cmsr-userlore-gold a{
+    display: inline-block;
+    margin: 0 2px;
+    height: 17px;
+    border-radius: 9px;
+    background: #ffe2e0 url(../imags/goldicon.png) no-repeat left center;
+    font-size: 12px ;
+    color: #ff5000;
+    padding: 0 10px 0 20px;
+    line-height: 17px;
+
+}
+#cmsr-userlore-btns{
+    text-align: center;
+}
+#cmsr-userlore-btns a{
+    display: inline-block;
+    height: 25px;
+    width: 75px;
+    color: #fff;
+    background: -webkit-linear-gradient(left, #ff5000,#fe6f07);
+    background: -o-linear-gradient(left,#ff5000,#fe6f07);
+    background: -moz-linear-gradient(left,#ff5000,#fe6f07);
+    background: -mos-linear-gradient(left,#ff5000,#fe6f07);
+    background: linear-gradient(left,#ff5000,#fe6f07);
+    border-radius: 5px;
+    line-height: 25px;
+    font-weight: 700;
+    cursor: pointer;
+}
+#cmsr-userlore-btns a:hover{
+    -webkit-animation: 2s 0s infinite move_eye;
+}
+#cmsr-userlore-btns a:first-child{
+    width: 92px;
+}
+#cmsr-userlore-btns a:nth-child(2){
+    margin: 0 7px;
 }
 
+
+
+
+
+
+
+
+#container-content >.mainBox > .con-main-show .con-main-show-r .cmsr-report-area{
+    height: 26px;
+    margin-bottom:13px; 
+    background-color: #ffe4dd;
+    text-align: center;
+    position: relative;
+}
+
+#container-content >.mainBox > .con-main-show .con-main-show-r .cmsr-report-area>span{
+    position: absolute;
+    right: 59px;
+    top:50%;
+    margin-top: -4px;
+    height: 0;
+    width: 0;
+    border-top:4px transparent solid;
+    border-bottom:4px transparent solid;
+    border-left:6px #ff5000 solid;
+
+}
+
+
+
+
+
+#container-content >.mainBox > .con-main-show .con-main-show-r .cmsr-report-area a{
+    display: block;
+    color: #ff5000;
+    font: 14px "微软雅黑";
+    line-height: 26px;
+}
+
+#cmsr-Community{
+    height: 86px;
+    background: #bbb;
+    margin-bottom:10px; 
+
+}
+#cmsr-FastTemplate{
+    height: 234px;
+    background: #f6b5ff;
+}
