@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <style>
+           
+            *{
+                margin: 0;
+                padding: 0;
+                list-style: none;
+
+            }
+            div.runmapbox{
+                height: 280px;
+                width: 520px;
+                margin: 100px auto;
+                border: 2px solid #fff000;
+                overflow: hidden;
+                position: relative;
+
+            }
+            #mapContain{
+                height: 100%;
+                display: flex;
+                background: #000;
+                margin-left: -520px;
+                
+            }
+            #mapContain>li{
+                width: 520px;
+            }
+            
+            
+            #mapCtrls>a{
+                display: inline-block;
+                height: 30px;
+                width: 30px;
+                background:rgba(0, 0, 0, .5);
+                position: absolute;
+                top: 50%;
+                border-radius: 50%;
+                color: rgba(255, 255, 255, .8);
+                text-decoration: none;
+                text-align: center;
+                line-height: 30px;
+                font-size: 16px;
+                border: 2px solid rgba(255, 255, 255, 0.472);
+            }
+            #mapCtrls>a:hover{
+                background:rgba(0, 0, 0,1);
+             
+            }
+            #mapCtrls>a:first-child{
+                left:5px;
+            }
+            
+            #mapCtrls>a:nth-child(2){
+                right: 5px;
+            }
+        </style>
+        <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <title>jQ 轮播图</title>
+</head>
+<body>
+    <div class="runmapbox">
+        <ul id="mapContain">
+            <li><img src="imags/TB10CKG04.jpg" alt=""></li>
+            <li><img src="imags/TB10CKG01.jpg" alt=""></li>
+            <li><img src="imags/TB10CKG02.jpg" alt=""></li>
+            <li><img src="imags/TB10CKG03.jpg" alt=""></li>
+            <li><img src="imags/TB10CKG04.jpg" alt=""></li>
+            <li><img src="imags/TB10CKG01.jpg" alt=""></li>
+        </ul>
+        <div id="mapCtrls">
+            <a href="javascript:;" class="pre"><</a>
+            <a href="javascript:;" class="next">></a>
+            <ul id="circleCtrl">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    <!-- <div id="imgbox">
+        <img src="imags/TB10CKG03.jpg" />
+        <span></span>
+    </div> -->
+    <script>
+    $(function(){
+        
+        
+        var $mapContain = $("#mapContain");
+        var $mapContainLis = $("#mapContain>li");
+        var itemLisW = 520;     //单位li的宽度
+        
+            //动态设置ul的宽度
+            $mapContain.css("width",($mapContainLis.length)*itemLisW);
+        
+        var oldVal;
+        var timer;
+        var timer1;
+        
+        //动态设置 pre 和 next 垂直居中 
+        var $mapCtrlAs = $("#mapCtrls>a");
+        $mapCtrlAs.css({
+            "margin-top": -($mapCtrlAs.height())/2
+        })
+
+        $mapCtrlAs.eq(0).click(function(){
+            oldVal = parseInt($mapContain.css("marginLeft")) ;
+            newVal = oldVal + -520;
+            // $mapContain.css("margin-left",newVal);
+            $mapContain.stop().animate({
+                marginLeft:newVal
+            },500,function(){
+
+                if(newVal <= -2600){
+                    $mapContain.css("margin-left",-520);
+                }
+            });
+        })
+        $mapCtrlAs.eq(1).click(function(){
+            oldVal = parseInt($mapContain.css("marginLeft")) ;
+            newVal = oldVal + 520;
+            
+            $mapContain.stop().animate({
+                marginLeft:newVal
+            },500,function(){
+                if(newVal >= 0){
+                    $mapContain.css("margin-left",-2080);
+                }
+            });
+        })
+
+        function mymove(){
+            timer1 = setTimeout(function(){
+                timer = setInterval(function(){
+                    oldVal = parseInt($mapContain.css("marginLeft")) ;
+                    newVal = oldVal + -520;
+                    $mapContain.stop().animate({
+                        marginLeft:newVal
+                            },800,function(){
+
+                        if(newVal <= -2600){
+                            $mapContain.css("margin-left",-520);
+                        }
+                    });
+                },1000)
+            },1000)
+            
+        }
+        mymove();
+        $mapContain.children().hover(function(){
+
+            clearInterval(timer)
+            clearInterval(timer1)
+
+        },function(){
+            mymove();
+        })
+
+
+
+
+
+
+
+
+
+
+    })
+       
+
+
+        
+    </script>
+</body>
+</html>
